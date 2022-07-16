@@ -33,13 +33,13 @@ export async function getCards(userId: number) {
 export async function getCard(cardId: number, userId: number) {
     if (!userId || !cardId) throw { type: "Unprocessable Entity" }
     const card = await cardsRepository.findByIdAndUser(cardId, userId)
-    if (!card) throw { type: "Not Found" }
+    if (card.length === 0) throw { type: "Not Found" }
     return utilsServices.changePasswordAndSecurityCodeToDecrypt(card);
 }
 
 export async function deleteCard(cardId: number, userId: number) {
     if (!userId || !cardId) throw { type: "Unprocessable Entity" }
     const card = await cardsRepository.findByIdAndUser(cardId, userId)
-    if (!card) throw { type: "Not Found" }
+    if (card.length === 0) throw { type: "Not Found" }
     await cardsRepository.deleteById(cardId, userId)
 }

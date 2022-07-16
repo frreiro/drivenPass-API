@@ -25,6 +25,7 @@ export async function getWifis(userId: number) {
 export async function getWifi(wifiId: number, userId: number) {
     if (!userId || !wifiId) throw { type: "Unprocessable Entity" }
     const wifi = await wifiRepository.findByIdAndUser(wifiId, userId);
+    if (wifi.length === 0) throw { type: "Not Found" }
     return utilsServices.changePasswordToDecrypt(wifi)
 
 }

@@ -22,6 +22,11 @@ export async function findByUser(userId: number) {
     return await prisma.notes.findMany({
         where: {
             userId,
+        },
+        select: {
+            id: true,
+            title: true,
+            note: true
         }
     })
 }
@@ -34,6 +39,11 @@ export async function findByIdAndUser(id: number, userId: number) {
             AND: {
                 userId,
             }
+        },
+        select: {
+            id: true,
+            title: true,
+            note: true
         }
     })
 }

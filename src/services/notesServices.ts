@@ -20,6 +20,7 @@ export async function getUserNotes(userId: number) {
 export async function getUserNote(userId: number, noteId: number) {
     if (!noteId || !userId) throw { type: "Unprocessable Entity" }
     const note = await notesRepository.findByIdAndUser(noteId, userId);
+    if (note.length === 0) throw { type: "Not Found" }
     return note;
 }
 

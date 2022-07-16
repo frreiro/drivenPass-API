@@ -25,6 +25,7 @@ export async function getCredentials(userId: number) {
 export async function getCredential(credentialId: number, userId: number) {
     if (!credentialId || !userId) throw { type: "Unprocessable Entity" }
     const userCredentials = await credentialsRepository.findByIdAndUser(credentialId, userId)
+    if (userCredentials.length === 0) throw { type: "Not Found" }
     return utilsServices.changePasswordToDecrypt(userCredentials)
 
 }
