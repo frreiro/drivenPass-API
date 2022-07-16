@@ -5,7 +5,7 @@ import { createCredentialSchema } from './../schema/schemas.js';
 
 const credentialsRouter = Router();
 
-credentialsRouter.post("/credential", schemaValidate(createCredentialSchema), createCredential)
+credentialsRouter.post("/credentials", schemaValidate(createCredentialSchema), createCredential)
 credentialsRouter.get("/credentials", getCredentials);
 credentialsRouter.get("/credentials/:id", getCredential);
 credentialsRouter.delete("/credentials/:id", deleteCredential);
