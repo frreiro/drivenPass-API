@@ -6,14 +6,8 @@ export type CreateWifi = Omit<Wifi, "id">;
 export type ReceiveWifi = Omit<CreateWifi, "userId">
 
 export async function create({ title, ssd, password: rawPassword, userId }: CreateWifi) {
-    await titleValidate(title, userId)
     const password = utilsServices.passwordCryptrEncrypt(rawPassword);
     await wifiRepository.insert({ title, ssd, password, userId });
-}
-
-async function titleValidate(title: string, userId: number) {
-    const wifi = await wifiRepository.findByTitle(title, userId)
-    if (wifi) throw { type: "Conflict" }
 }
 
 export async function getWifis(userId: number) {
