@@ -2,10 +2,11 @@
   <a href="https://github.com/frreiro/drivenPass-API">
     <img src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f512.svg" alt="readme-logo" width="80" height="80">
   </a>
-
   <h3 align="center">
     DrivenPass
   </h3>
+  
+ <p align="center">Gerenciador de senhas</p>
 </p>
 
 ## Usage
