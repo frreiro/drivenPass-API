@@ -6,7 +6,7 @@
     DrivenPass
   </h3>
   
- <p align="center">Gerenciador de senhas</p>
+ <p align="center">Password Manager</p>
 </p>
 
 ## Usage
